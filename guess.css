@@ -1,49 +1,58 @@
-*{
+* {
     box-sizing: border-box;
 }
+
 /* Set the main color*/
-:root{
-    --primary-color:#f44336;
+:root {
+    --primary-color: #f44336;
 }
-body{
+
+body {
     margin: 0;
-    background-color: #EEE;
+    background-color: #eee;
     font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
 }
-h1{
+
+h1 {
     text-align: center;
     padding: 20px;
     margin: 0 0 50px;
-    background-color: white;
+    background-color: #333;
+    color: white;
 }
 
 /* the main style*/
 
-.guess-game{
+.guess-game {
     text-align: center;
     width: 1000px;
     margin: 20px auto;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    .game-area{
-        .inputs{
-            > div{
+
+    .game-area {
+        .inputs {
+            >div {
                 margin-bottom: 20px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                span{
+
+                span {
                     font-size: 30px;
                     margin-right: 15px;
                     font-weight: bold;
                 }
             }
-            .disabled-input{
+
+            .disabled-input {
                 opacity: 0.5;
                 pointer-events: none;
             }
-            input{
+
+            input {
                 margin: 0 5px;
                 width: 60px;
                 height: 60px;
@@ -53,42 +62,63 @@ h1{
                 background: white;
                 border: none;
                 border-bottom: 3px solid #333;
-                &:focus{
+
+                &:focus {
                     outline-color: #ccc;
                 }
-                &.yes-in-place{
+
+                &.yes-in-place {
                     background-color: #f89e13;
-                    border:#f89e13 ;
+                    border: #f89e13;
                     color: white;
                 }
-                &.not-in-place{
+
+                &.not-in-place {
                     background-color: #18ba89;
-                    border:#18ba89 ;
+                    border: #18ba89;
                     color: white;
                 }
-                &.no{
+
+                &.no {
                     background-color: #27303f;
-                    border:#27303f ;
+                    border: #27303f;
                     color: white;
                 }
             }
         }
-        .control{
+
+        .control {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 500px;
             margin: 30px auto;
             gap: 10px;
-            .check{
+
+            .check {
                 background-color: var(--primary-color);
+                font-size: large;
                 flex: 1;
+                margin-left: 90px;
+                transition: 0.4s;
             }
-            .hint{
+
+            .check:hover {
+                background-color: rgb(234, 110, 110);
+            }
+
+            .hint {
                 background-color: #009688;
                 width: fit-content;
+                font-size: large;
+                transition: 0.4s;
             }
-            button{
+
+            .hint:hover {
+                background-color: #58ddd0;
+            }
+
+            button {
                 border: none;
                 font: 25px;
                 padding: 15px 20px;
@@ -97,36 +127,43 @@ h1{
                 cursor: pointer;
                 font-weight: bold;
             }
-            button:disabled{
+
+            button:disabled {
                 background-color: black;
                 opacity: 0.4;
                 cursor: no-drop;
             }
         }
     }
-    .key-colors{
-        .key-color{
+
+    .key-colors {
+        .key-color {
             display: flex;
             align-items: center;
             padding: 15px;
             background-color: white;
             margin-bottom: 10px;
-            .key{
+
+            .key {
                 width: 30px;
                 height: 30px;
                 border-radius: 50%;
                 margin-right: 10px;
-                &.yes-in-place{
+
+                &.yes-in-place {
                     background-color: #f89e13;
                 }
-                &.not-in-place{
+
+                &.not-in-place {
                     background-color: #18ba89;
                 }
-                &.no{
+
+                &.no {
                     background-color: #27303f;
                 }
             }
-            .key-text{
+
+            .key-text {
                 font-size: 20px;
                 font-weight: bold;
             }
@@ -134,33 +171,200 @@ h1{
     }
 }
 
-.message{
+.message {
     text-align: center;
     font-weight: bold;
     font-size: 30px;
-    span{
+
+    span {
         font-weight: bold;
         display: block;
         font-size: 50px;
         color: var(--primary-color);
         text-transform: capitalize;
-        margin-top: 10px; 
+        margin-top: 10px;
     }
-    p{
+
+    p {
         margin-top: 15px;
     }
 }
 
 /* the footer style */
-footer{
+footer {
     text-align: center;
     padding: 15px;
-    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     background-color: #333;
     color: white;
     font-weight: bold;
+}
 
+/*  add responsive design  */
+@media (max-width: 1000px) {
+    .guess-game {
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-between;
+        gap: 60px;
+
+        .game-area {
+            .inputs {
+                >div {
+                    margin-bottom: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    /* flex-direction: column; */
+
+                    span {
+                        font-size: 15px;
+                        margin-right: 7px;
+                        font-weight: bold;
+                    }
+                }
+
+                .disabled-input {
+                    opacity: 0.5;
+                    pointer-events: none;
+                }
+
+                input {
+                    margin: 0 5px;
+                    width: 30px;
+                    height: 30px;
+                    text-align: center;
+                    font-size: 25px;
+                    caret-color: var(--primary-color);
+                    background: white;
+                    border: none;
+                    border-bottom: 3px solid #333;
+
+                    &:focus {
+                        outline-color: #ccc;
+                    }
+
+                    &.yes-in-place {
+                        background-color: #f89e13;
+                        border: #f89e13;
+                        color: white;
+                    }
+
+                    &.not-in-place {
+                        background-color: #18ba89;
+                        border: #18ba89;
+                        color: white;
+                    }
+
+                    &.no {
+                        background-color: #27303f;
+                        border: #27303f;
+                        color: white;
+                    }
+                }
+            }
+
+            .control {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 250px;
+                margin: 15px auto;
+                gap: 5px;
+
+                .check {
+                    background-color: var(--primary-color);
+                    font-size: small;
+                    flex: 1;
+                    margin-left: 45px;
+                    transition: 0.4s;
+                }
+
+                .check:not(:disabled):hover {
+                    background-color: rgb(234, 110, 110);
+                }
+
+
+                .hint {
+                    background-color: #009688;
+                    width: fit-content;
+                    font-size: small;
+                    transition: 0.4s;
+                }
+
+                .hint.check :not(:disabled) :hover {
+                    background-color: #58ddd0;
+                }
+
+                button {
+                    border: none;
+                    font: 12px;
+                    padding: 7px 10px;
+                    border-radius: 3px;
+                    color: white;
+                    cursor: pointer;
+                    font-weight: bold;
+                }
+
+                button:disabled {
+                    background-color: black;
+                    opacity: 0.4;
+                    cursor: no-drop;
+                    pointer-events: none;
+                }
+            }
+        }
+
+        .key-colors {
+            .key-color {
+                display: flex;
+                align-items: center;
+                padding: 7px;
+                background-color: white;
+                margin-bottom: 5px;
+
+                .key {
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    margin-right: 5px;
+
+                    &.yes-in-place {
+                        background-color: #f89e13;
+                    }
+
+                    &.not-in-place {
+                        background-color: #18ba89;
+                    }
+
+                    &.no {
+                        background-color: #27303f;
+                    }
+                }
+
+                .key-text {
+                    font-size: 10px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    footer {
+        text-align: center;
+        padding: 15px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 0;
+
+    }
 }
